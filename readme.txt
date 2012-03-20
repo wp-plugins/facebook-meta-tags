@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: facebook, meta, tags, thumbnails, post, images, share, incorrect
 Requires at least: 2.9
 Tested up to: 3.1
-Stable tag: 0.6
+Stable tag: 0.7
 
  This plugin adds <strong>appropriate meta tags for facebook share</strong>. No Setting required. Visit <a href="http://shailan.com/wordpress/plugins/facebook-meta-tags-plugin/">plugin page</a> for more information. Visit shailan.com to <a href="http://shailan.com">get more widgets & plugins</a>.
 
@@ -22,6 +22,9 @@ Stable tag: 0.6
     http://shailan.com/contact/
 
 == Changelog ==
+
+= 0.7 = 
+* Disabled author tag for later resolution.
 
 = 0.6 = 
 * Fixed default logo error. Thanks to Tim Selaty for pointing out.

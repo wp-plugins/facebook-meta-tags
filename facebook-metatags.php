@@ -3,7 +3,7 @@
 Plugin Name: Facebook Meta Tags
 Plugin URI: http://shailan.com/wordpress/plugins/facebook-metatags
 Description: This plugin adds <strong>appropriate meta tags for facebook share</strong>. No Setting required. Visit <a href="http://shailan.com/wordpress/plugins/facebook-meta-tags-plugin/">plugin page</a> for more information. Visit shailan.com to <a href="http://shailan.com">get more widgets & plugins</a>. 
-Version: 0.6
+Version: 0.7
 Author: Matt Say
 Author URI: http://shailan.com
 
@@ -67,8 +67,8 @@ function insert_facebook_metatags(){
 			$type = "article";
 			
 			// Author
-			$author = get_the_author();
-			$additional_tags[] = "\n\t<meta property=\"article:author\" content=\"$author\" />"; 
+			/*$author = get_the_author();
+			$additional_tags[] = "\n\t<meta property=\"article:author\" content=\"$author\" />"; */
 			
 			// Category
 			$category = get_the_category(); 
