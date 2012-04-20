@@ -18,7 +18,7 @@ $options = array(
 		array(  
 			"type" => "text",
 			"name" => "Admins (Optional)",
-			"desc" => "List of user ids associated with this site. (Eg: USER_ID1,USER_ID2).",
+			"desc" => "List of user ids associated with this site separated with comma. (e.g. USER_ID1,USER_ID2).",
 			"id" => "site_admins",
 			"std" => ""
 		),
@@ -26,7 +26,7 @@ $options = array(
 		array(  
 			"type" => "text",
 			"name" => "App ID (Optional)",
-			"desc" => "Application ID associated with this site. (Eg: 1234567)",
+			"desc" => "Application ID associated with this site. You can <a href=\"https://developers.facebook.com/apps/\">get your app id here</a>. ",
 			"id" => "app_id",
 			"std" => ""
 		),

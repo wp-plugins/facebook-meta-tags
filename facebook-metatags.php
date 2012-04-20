@@ -3,7 +3,7 @@
 Plugin Name: Facebook Meta Tags
 Plugin URI: http://shailan.com/wordpress/plugins/facebook-metatags
 Description: This plugin adds <strong>appropriate meta tags for facebook share</strong>. No Setting required. Visit <a href="http://shailan.com/wordpress/plugins/facebook-meta-tags-plugin/">plugin page</a> for more information. Visit shailan.com to <a href="http://shailan.com">get more widgets & plugins</a>. 
-Version: 0.7
+Version: 0.8
 Author: Matt Say
 Author URI: http://shailan.com
 
@@ -105,7 +105,6 @@ function insert_facebook_metatags(){
 	$site_name = get_bloginfo();
 		
 	echo "\n<!-- Generated with Facebook Meta Tags plugin by Shailan ( http://shailan.com/ ) --> ";
-	
 	echo "\n\t<meta property=\"og:title\" content=\"$title\" />";
     echo "\n\t<meta property=\"og:type\" content=\"$type\" />";
     echo "\n\t<meta property=\"og:url\" content=\"$url\" />";
@@ -199,8 +198,8 @@ class shailan_facebook_metatags {
 		
 		// Enqueue scripts & styles
 		wp_enqueue_script( "jquery" );
-		wp_enqueue_script( "tweetable", WP_PLUGIN_URL . '/facebook-metatags/assets/js/jquery.tweetable.js', 'jquery' );
-		wp_enqueue_style( "stf-adsense", WP_PLUGIN_URL . "/facebook-metatags/assets/css/admin.css", false, "1.0", "all");	
+		wp_enqueue_script( "tweetable", WP_PLUGIN_URL . '/facebook-meta-tags/assets/js/jquery.tweetable.js', 'jquery' );
+		wp_enqueue_style( "facebook-meta-tags-admin", WP_PLUGIN_URL . "/facebook-meta-tags/assets/css/admin.css", false, "1.0", "all");	
 		wp_enqueue_style( "google-droid-sans", "http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&v1", false, "1.0", "all");	
 		
 		
