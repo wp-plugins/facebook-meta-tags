@@ -17,7 +17,7 @@ function insert_facebook_metatags(){
 	
 	$additional_tags = array();
 	
-	if(is_single() || is_page()){
+	if( is_single() || is_page() && !is_front_page() ){
 		$the_post = get_post($thePostID); 
 		// The title
 		$title = apply_filters('the_title', $the_post->post_title);
