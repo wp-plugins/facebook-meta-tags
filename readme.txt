@@ -6,8 +6,8 @@ Requires at least: 2.9
 Tested up to: 4.0
 Stable tag: 0.9
 
- This plugin adds <strong>appropriate meta tags for facebook share</strong>. No Setting required. [Visit plugin page](http://shailan.com/wordpress/plugins/facebook-meta-tags-plugin/) for more information. Visit [shailan.com](http://shailan.com) to get more widgets & plugins.
-
+ This plugin adds required meta tags for facebook sharing. It makes featured images as sharing thumbnail. It also adds other required meta using post features.
+ 
 == Description ==
 
   Please refer to:
