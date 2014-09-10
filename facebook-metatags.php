@@ -2,8 +2,8 @@
 /*
 Plugin Name: Facebook Meta Tags
 Plugin URI: http://shailan.com/wordpress/plugins/facebook-meta-tags-plugin/
-Description: This plugin adds <strong>appropriate meta tags for facebook share</strong>. No Setting required. Visit <a href="http://shailan.com/wordpress/plugins/facebook-meta-tags-plugin/">plugin page</a> for more information. Visit shailan.com to <a href="http://shailan.com">get more widgets & plugins</a>. 
-Version: 0.8
+Description:  This plugin adds <strong>appropriate meta tags for facebook share</strong>. No Setting required. [Visit plugin page](http://shailan.com/wordpress/plugins/facebook-meta-tags-plugin/) for more information. Visit [shailan.com](http://shailan.com) to get more widgets & plugins.
+Version: 0.9
 Author: Matt Say
 Author URI: http://shailan.com
 
