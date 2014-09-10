@@ -4,7 +4,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: facebook, meta, tags, thumbnails, post, images, share, incorrect
 Requires at least: 2.9
 Tested up to: 4.0
-Stable tag: 0.9
+Stable tag: 0.9.1
 
  This plugin adds required meta tags for facebook sharing. It makes featured images as sharing thumbnail. It also adds other required meta using post features.
  
