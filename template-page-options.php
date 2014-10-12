@@ -1,5 +1,5 @@
 <div class="wrap stf_options_page">
-	<div id="icon-options" class="icon32"><br></div>
+	<?php screen_icon(); ?>
 	<h2><?php echo esc_html( $title ); ?></h2>
 	
 <!-- Notifications -->
@@ -26,18 +26,12 @@
 		</div>
 	</div>
 
-	<div id="stf_tweet_wrap">
-	<div id="stf_tweet"></div><script type="text/javascript"> 
-	jQuery(document).ready(function($) {
-		$('#stf_tweet').tweetable({username: 'shailancom', time: false, limit: 1, replies: false});
-	});
-	</script>
-	
+	<div id="stf_tweet_wrap">	
 	<a href="http://twitter.com/shailancom" class="follow-link">Follow Shailan.com on twitter!</a>
 	</div>
 
 	<div id="headlines">
-	<h3>Latest headlines from Shailan.com</h3>
+	<h3>Shailan Design Blog</h3>
 		<?php
 				//echo get_latest_tweet('mattsay');			
 				
@@ -58,8 +52,11 @@
 
 <div id="nav"><?php if(!empty($navigation)){echo $navigation;} ?></div>
 
+
+
 <div class="stf_opts_wrap">
 <div class="stf_options">
+
 <form method="post">
 <div id="options-tabs">
 
@@ -68,7 +65,7 @@
 	<?php
 		foreach ($options as $field) {
 			if ( $field['type'] == "section" ) {
-				echo "<li><a href=\"#" . sanitize_title( $field['name'] ) . "\" class=\"" . sanitize_title( $field['name'] ) . "\">".$field['name']."</a></li>";
+				echo "<li><a href=\"#" . sanitize_title( $field['name'] ) . "\" class=\"" . sanitize_title( $field['name'] ) . "\">".$field['label']."</a></li>";
 			}
 		}
 	?>
@@ -86,9 +83,17 @@ switch ( $field['type'] ) {
 	case 'close': ?>
 
 </div>
-</div>
  
 <?php break;
+
+	case 'paragraph': ?>
+
+<div class="stf_paragraph clearfix">
+	<?php echo $field['desc']; ?>
+</div>
+
+<?php
+break;
 	
 	case 'text': ?>
 
@@ -156,7 +161,7 @@ case "checkbox":
 <div class="stf_input stf_checkbox clearfix">
 	<label for="<?php echo $field['id']; ?>"><?php echo $field['name']; ?></label>
 	
-	<input type="checkbox" name="<?php echo $field['id']; ?>" id="<?php echo $field['id']; ?>" value="on" <?php @checked( $current[ $field['id'] ], "on" ) ?> />
+	<input type="checkbox" name="<?php echo $field['id']; ?>" id="<?php echo $field['id']; ?>" value="on" <?php checked($current[ $field['id'] ], "on") ?> />
 
 	<small><?php echo $field['desc']; ?></small>
  </div>
@@ -166,11 +171,18 @@ case "section":
 ?>
 
 <div class="stf_section tab_content" id="<?php echo sanitize_title( $field['name'] ); ?>">
-<!-- <div class="stf_title"><h3><?php echo $field['name']; ?></h3><span class="submit">
-</span><div class="clear"></div></div> -->
-<div class="stf_options">
-
  
+<?php break;
+
+case "splitter":
+?>
+<div class="shailan_dm_input shailan_dm_splitter"></div> 
+<?php break;
+
+case 'picker':
+?>
+	<div id="picker"></div> 
+	
 <?php break;
  
 }
@@ -179,25 +191,21 @@ case "section":
 
 <div id="tabs-footer" class="clearfix">
 	<p class="submit">
-		<input name="save" type="submit" class="button-primary" value="Save changes" />
+		<?php submit_button( 'Save Changes', 'primary', 'save', false ); ?>
 		<input type="hidden" name="action" value="save" />
 	</p>
 	</form>
 	
 	<form method="post">
-		<input name="reset" type="submit" class="button-secondary" value="Reset Options" />
+		<?php submit_button( 'Reset Options', 'secondary', 'reset', false ); ?>
 		<input type="hidden" name="action" value="reset" />
 	</form>
-
 
 	<div class="copyright"><?php if(!empty($footer_text)){echo $footer_text;} ?></div>
 </div>
 </div>
 </div>
 </div>
-
-
-
 
 <script type="text/javascript">
 jQuery(document).ready(function($) {
@@ -221,4 +229,9 @@ jQuery(document).ready(function($) {
 
 });
 </script>
+
+<?php if(WP_DEBUG){ ?>
+<h3>Debug information</h3>
+<pre><?php print_r($current) ?></pre>
+<?php } ?>
 </div> 

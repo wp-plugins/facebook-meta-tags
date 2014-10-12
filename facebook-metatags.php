@@ -1,9 +1,9 @@
 <?php 
 /*
 Plugin Name: Facebook Meta Tags
-Plugin URI: http://shailan.com/wordpress/plugins/facebook-meta-tags-plugin/
+Plugin URI: http://shailan.com/facebook-meta-tags/
 Description: This plugin adds required meta tags for facebook sharing. It makes featured images as sharing thumbnail. It also adds other required meta using post features.
-Version: 0.9.1
+Version: 1.0
 Author: Matt Say
 Author URI: http://shailan.com
 
@@ -80,26 +80,27 @@ function insert_facebook_metatags(){
 		// Post thumbnail
 		if( has_post_thumbnail( $thePostID )){
 			$thumb_id = get_post_thumbnail_id( $thePostID );
-			$image = wp_get_attachment_image_src( $thumb_id, array(100,100) );
+			$image = wp_get_attachment_image_src( $thumb_id, array(800,800) );
 			$thumbnail = $image[0];
 		} else {
 		
 			// checking if logo is set through options page.
 			$thumbnail = get_sfmt_setting('default_logo');
 			
-			if( "" == $thumbnail ){
-				// otherwise get logo from logo_url option.
-				$thumbnail = get_option( 'logo_url' );
-			}
-			
 		}
 		
-	} else {
+	} elseif( is_home() || is_front_page() ){
 		$title = get_bloginfo('name');
-		$desc = get_bloginfo('description');
+		$desc = get_sfmt_setting('home_desc');
 		$type = "blog";
 		$url = get_home_url();
-		$thumbnail = get_option( 'logo_url' );
+		$thumbnail = get_sfmt_setting('default_logo');
+	} else {
+		$title = get_bloginfo('name');
+		$desc = get_sfmt_setting('home_desc');
+		$type = "blog";
+		$url = get_home_url();
+		$thumbnail = get_sfmt_setting('default_logo');
 	}
 	
 	$site_name = get_bloginfo();
@@ -133,7 +134,7 @@ function insert_facebook_metatags(){
 add_action('wp_head', 'insert_facebook_metatags');
 
 if ( function_exists( 'add_theme_support' ) ) { add_theme_support( 'post-thumbnails', array('post', 'page') ); }
-if ( function_exists( 'add_image_size' ) ) { add_image_size( 'facebook-metatags', 100, 100, true ); }
+if ( function_exists( 'add_image_size' ) ) { add_image_size( 'facebook-metatags', 300, 300, true ); }
 
 /* OPTIONS PAGE WORKS */
 
@@ -198,8 +199,7 @@ class shailan_facebook_metatags {
 		
 		// Enqueue scripts & styles
 		wp_enqueue_script( "jquery" );
-		wp_enqueue_script( "tweetable", WP_PLUGIN_URL . '/facebook-meta-tags/assets/js/jquery.tweetable.js', 'jquery' );
-		wp_enqueue_style( "facebook-meta-tags-admin", WP_PLUGIN_URL . "/facebook-meta-tags/assets/css/admin.css", false, "1.0", "all");	
+		wp_enqueue_style( "facebook-meta-tags-admin", WP_PLUGIN_URL . "/facebook-meta-tags/admin.css", false, "1.0", "all");	
 		wp_enqueue_style( "google-droid-sans", "http://fonts.googleapis.com/css?family=Droid+Sans:regular,bold&v1", false, "1.0", "all");	
 		
 		
@@ -331,5 +331,14 @@ function get_sfmt_setting( $key, $default = '' ) {
 	return FALSE;
 }
 
+
+/**
+ * Returns link to debug page on facebook linter
+ * Usage: <?php if( function_exists('sfmt_debug_link') ){ echo "<a href=\"" . sfmt_debug_link() . "\">Debug Facebook Meta</a>"; } ?> 
+ */
+function sfmt_debug_link(){
+	global $post;
+	return "https://developers.facebook.com/tools/debug/og/object?q=" . urlencode( get_permalink( $post->ID ) ); 
+}
 
 ?>

@@ -1,27 +1,29 @@
 === Facebook Meta Tags ===
 Contributors: mattsay
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=10214058
-Tags: facebook, meta, tags, thumbnails, post, images, share, incorrect
+Tags: facebook, meta, tags, opengraph, thumbnails, post, images, share, incorrect
 Requires at least: 2.9
 Tested up to: 4.0
-Stable tag: 0.9.1
+Stable tag: 1.0
 
- This plugin adds required meta tags for facebook sharing. It makes featured images as sharing thumbnail. It also adds other required meta using post features.
+This plugin adds required meta tags for facebook sharing. It automatically uses post's featured image as sharing image.
  
 == Description ==
 
-  Please refer to:
+This plugin adds required meta tags to your site header. It automatically inserts title, description and post thumbnails. When you click on facebook share you get the right image for sharing. If you want to define a homepage logo it can be easily done on the plugin settings page. Please refer to [http://shailan.com/facebook-meta-tags](http://shailan.com/facebook-meta-tags "Facebook Meta Tags") for more information.
 
-    http://shailan.com/wordpress/plugins/facebook-meta-tags-plugin/
+== Installation ==
 
-  for detailed usage information & updates.
- 
-
-  You can report bugs & request new features using contact form on:
-
-    http://shailan.com/contact/
+1. Go to `Plugins > Add New > Upload` page on your admin panel.
+1. Upload the plugin zip file that you have downloaded. 
+1. Activate the plugin after installation is complete.
 
 == Changelog ==
+
+= 1.0 =
+* Added homepage description field.
+* Updated options page template. 
+* Fixed options page descriptions.
 
 = 0.9 =
 * Tested with WP 4.0
